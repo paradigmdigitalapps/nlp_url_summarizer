@@ -25,16 +25,20 @@ class FrequencySummarizer:
        freq, a dictionary where freq[w] is the frequency of w.
     """
     freq = defaultdict(int)
+
     for s in word_sent:
       for word in s:
         if word not in self._stopwords:
           freq[word] += 1
     # frequencies normalization and fitering
+
     m = float(max(freq.values()))
+
     for w in freq.keys():
       freq[w] = freq[w]/m
       if freq[w] >= self._max_cut or freq[w] <= self._min_cut:
-        del freq[w]
+        # del freq[w]
+        pass #I apply pass because python3 can't accept if dict size changes in for 
     return freq
 
   def summarize(self, text, n):
@@ -43,7 +47,8 @@ class FrequencySummarizer:
       which represent the summary of text.
     """
     sents = sent_tokenize(text)
-    assert n <= len(sents)
+    
+    # assert n <= len(sents)
     word_sent = [word_tokenize(s.lower()) for s in sents]
     self._freq = self._compute_frequencies(word_sent)
     ranking = defaultdict(int)
