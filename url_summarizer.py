@@ -9,6 +9,7 @@ import requests
 # e.g. 
 # https://securityboulevard.com/2020/03/devsecops-the-best-security-strategy-in-2020/#respond
 # such, and all errors when r.text is empty of server is not responding shall be handled with exeptions 
+# 
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
